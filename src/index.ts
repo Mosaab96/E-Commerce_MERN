@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import userRoute from "./routes/userRoute";
 import { seedInitiatialproducts } from './services/productService';
 import productRoute from './routes/productRoute';
+import cartRoute from './routes/cartRoutes';
 
 const app = express();
 const PORT = 3001;
@@ -16,6 +17,7 @@ mongoose.connect('mongodb://localhost:27017/student').then(() => {
 });
 app.use('/user',userRoute);
 app.use('/product',productRoute);
+app.use('/cart',cartRoute);
 
 //Seed the product to the database
 seedInitiatialproducts();
